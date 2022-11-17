@@ -1,2 +1,8 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<h1 class="p-3 w-50 m-auto text-center text-white bg-danger rounded"><%= @list.name %></h1>
+
+<div class="w-75 text-end m-auto p-3 mt-2">
+  <%= link_to '<button class="btn btn-primary btn-lg">Add Movie</button>', new_list_bookmark_path(@list) %>
+</div>
+<% @list.bookmarks.each do |bookmark| %>
+<p><%= bookmark.movie.title %>  <%= link_to '<i class="fa-solid fa-trash fa-xl"></i>'.html_safe, list_bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+<% end %>
