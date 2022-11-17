@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "movies#index"
   resources :lists do
-    resources :bookmarks
+    resources :bookmarks, only: %I[new create]
   end
   resources :bookmarks, only: [:destroy]
 end

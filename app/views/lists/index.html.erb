@@ -1,44 +1,25 @@
-<div class="navbar navbar-expand-sm navbar-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
+<div class="navbar navbar-light navbar-lewagon">
+  <div class="container-fluid d-flex content-between">
+    <a class="m-0 ms-1" href="#">
+      <img src="https://source.unsplash.com/dCgbRAQmTQA" style="height: 50px;" class="border-0 rounded" />
 </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Messages</a>
-          </li>
-          <li class="nav-item dropdown">
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
-            </div>
-          </li>
-          <!--li class="nav-item"-->
-          <!--/li-->
-      </ul>
-    </div>
+  <h1 class="nv-title p-3 w-50 m-auto text-center text-dark">Lists</h1>
+    <a class="nav-link me-1" href="/lists">Home</a>
   </div>
 </div>
 
-<h1 class="p-3 w-50 m-auto text-center text-white bg-danger rounded">Lists</h1>
-
-<div class="w-50 m-auto text-center p-3 m-2">
-  <%= link_to '<i class="fa-sharp fa-solid fa-file-circle-plus fa-xl text-danger"></i> Add List'.html_safe, new_list_path, style: 'text-decoration-none; color: red;'%>
-</div>
-<% @lists.each do |list| %>
-  <%= link_to list_path(list) do %>
-  <div class="card-category bg-primary" >
-    <h3 class="p-3 m-2 text-center text-white text-decoration-none"><%= list.name %></h3>
-  </div>
+<div class="w-100 m-auto mb-3 d-flex justify-content-end">
+  <%= link_to new_list_path, class: "text-decoration-none" do %>
+  <button class="btn btn-primary btn-gradient text-white p-3 m-2 me-4 text-end">Add New List</button>
   <% end %>
-<% end %>
+</div>
+
+<div class="cards w-75 m-auto">
+  <% @lists.each do |list| %>
+    <%= link_to list_path(list), class: "text-decoration-none" do %>
+      <div class="card-category mb-2 link_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/random/300x201/?<%= list.name %>');">
+        <%= list.name %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

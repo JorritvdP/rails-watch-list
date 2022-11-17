@@ -1,8 +1,17 @@
-<h1 class="p-3 w-50 m-auto text-center text-white bg-danger rounded"><%= @list.name %></h1>
+<div class="navbar navbar-light navbar-lewagon">
+  <div class="container-fluid d-flex content-between">
+    <a class="m-0 ms-1" href="#">
+      <img src="https://source.unsplash.com/dCgbRAQmTQA" style="height: 50px;" class="border-0 rounded" />
+</a>
+  <h1 class="nv-title p-3 w-50 m-auto text-center text-dark"><%= @list.name %></h1>
+    <a class="nav-link me-1" href="/lists">Home</a>
+  </div>
+</div>
 
 <div class="w-75 text-end m-auto p-3 mt-2">
   <%= link_to '<button class="btn btn-primary btn-lg">Add Movie</button>', new_list_bookmark_path(@list) %>
 </div>
 <% @list.bookmarks.each do |bookmark| %>
-<p><%= bookmark.movie.title %>  <%= link_to '<i class="fa-solid fa-trash fa-xl"></i>'.html_safe, list_bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+<%= bookmark.comment %>
+<p><%= bookmark.movie.title %>  <%= link_to '<i class="fa-solid fa-trash fa-xl"></i>'.html_safe, bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
 <% end %>
