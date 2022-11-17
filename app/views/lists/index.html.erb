@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div class="w-100 m-auto mb-3 d-flex justify-content-end">
+<div class="w-100 m-auto my-3 d-flex justify-content-end">
   <%= link_to new_list_path, class: "text-decoration-none" do %>
   <button class="btn btn-primary btn-gradient text-white p-3 m-2 me-4 text-end">Add New List</button>
   <% end %>
@@ -17,7 +17,7 @@
 <div class="cards w-75 m-auto">
   <% @lists.each do |list| %>
     <%= link_to list_path(list), class: "text-decoration-none" do %>
-      <div class="card-category mb-2 link_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/random/300x201/?<%= list.name %>');">
+      <div class="card-category mb-3 link_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/random/300x201/?<%= list.name %>');">
         <%= list.name %>
       </div>
     <% end %>
