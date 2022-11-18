@@ -16,8 +16,8 @@
 
 <div class="cards w-75 m-auto">
   <% @lists.each do |list| %>
-    <%= link_to list_path(list), class: "text-decoration-none" do %>
-      <div class="card-category mb-3 link_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/random/300x201/?<%= list.name %>');">
+    <%= link_to list_path(list), class: "text-decoration-none link_card" do %>
+      <div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/random/300x201/?<%= list.name %>');">
         <%= list.name %>
       </div>
     <% end %>
