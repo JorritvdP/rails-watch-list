@@ -1,17 +1,28 @@
-<div class="navbar navbar-light navbar-lewagon">
-  <div class="container-fluid d-flex content-between">
-    <a class="m-0 ms-1" href="#">
-      <img src="https://source.unsplash.com/dCgbRAQmTQA" style="height: 50px;" class="border-0 rounded" />
-</a>
-  <h1 class="nv-title p-3 w-50 m-auto text-center text-dark"><%= @list.name %></h1>
-    <a class="nav-link me-1" href="/lists">Home</a>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+    <a class="btn btn-flat me-1" href="/lists">Home</a>
   </div>
 </div>
 
-<div class="w-75 text-end m-auto p-3 mt-2">
-  <%= link_to '<button class="btn btn-primary btn-lg">Add Movie</button>', new_list_bookmark_path(@list) %>
+<div class="w-100 m-auto my-3 d-flex justify-content-end">
+  <%= link_to new_list_bookmark_path(@list), class: "text-decoration-none" do %>
+  <button class="btn btn-primary btn-lg btn-gradient text-white p-3 m-2 me-4 text-end">Add Movie</button>
+  <% end %>
 </div>
+
+
 <% @list.bookmarks.each do |bookmark| %>
-<%= bookmark.comment %>
-<p><%= bookmark.movie.title %>  <%= link_to '<i class="fa-solid fa-trash fa-xl"></i>'.html_safe, bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+<div class="w-50 m-auto mb-2 text-center card-bookmark">
+  <img src="<%= cl_image_path bookmark.photo.key, height: 300, crop: :fill %>", class= "mb-2"/>
+  <div class="card-bookmark-infos text-center d-flex justify-content-center">
+    <div class="bookmark-info">
+      <h3 class="text-start p-2 mb-2"><%= bookmark.movie.title %></h3>
+      <p class="text-start p-2 mb-2"><%= bookmark.comment %></p>
+    </div>
+    <div class= "ms-4 p-4 card-delete">
+      <%= link_to '<i class="fa-solid fa-trash fa-xl"></i>'.html_safe, bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </div>
+  </div>
+</div>
 <% end %>

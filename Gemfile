@@ -48,6 +48,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem 'unsplash', '~> 3.0'
 gem "dotenv-rails", groups: [:development, :test]
+gem "cloudinary"
 
 # Use Sass to process CSS
 # gem "sassc-rails"

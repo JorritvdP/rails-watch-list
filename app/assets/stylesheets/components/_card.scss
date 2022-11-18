@@ -16,13 +16,43 @@
 }
 
 
-.link_card:hover {
-  background-image: none;
-  background-color: black;
-}
+// .link_card:hover {
+//   background-image: none;
+//   background-color: black;
+// }
 
 .cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
+}
+
+
+.card-bookmark {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-bookmark > img {
+  height: 220px;
+  width: 100%;
+  object-fit: top;
+}
+
+.card-bookmark .card-bookmark-infos {
+  padding: 5px;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.bookmark-info {
+  width: 100%;
+}
+
+.card-delete {
+  // position: absolute;
+  right: 16px;
+  top: -20px;
 }
